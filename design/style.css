@@ -22,25 +22,33 @@ main {
 /* CARD */
 .card {
   display: flex;
-  flex-direction: row; /* 2 colunas no desktop */
+  flex-direction: row; /* duas colunas no desktop */
   background-color: white;
   border-radius: 0.5rem; /* 8px */
+  overflow: hidden; /* arredondamento perfeito */
+  max-width: 600px; /* largura fixa do card */
 }
 
 /* CARD LEFT */
+.card-left {
+  width: 50%; /* metade do card */
+}
+
 .card-left img {
   display: block;
-  border-radius: 0.5rem 0 0 0.5rem; /* 8px apenas nos cantos da esquerda */
   width: 100%;
-  height: auto;
+  height: 100%;
   object-fit: cover;
 }
 
 /* CARD RIGHT */
 .card-right {
-  max-width: 11.25rem; /* 180px */
+  width: 50%; /* metade do card */
   padding: 1.5rem;
-  font-size: 1rem; /* base para rem, todas as fontes internas relativas a isso */
+  font-size: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 /* Texto */
@@ -48,14 +56,14 @@ main {
   color: hsl(228, 12%, 48%);
   letter-spacing: 0.3rem;
   text-transform: uppercase;
-  font-size: 0.875rem; /* 14px */
-  font-weight: 700; /* substitui font-style: bold */
+  font-size: 0.75rem; /* 12px */
+  font-weight: 500;
 }
 
 .product-title {
   font-family: 'Fraunces', sans-serif;
   font-weight: 700;
-  color: hsl(158, 42%, 18%);
+  color: hsl(212, 21%, 14%);
   font-size: 1.5rem; /* 24px */
   margin: 0.5rem 0;
 }
@@ -64,28 +72,28 @@ main {
   color: hsl(228, 12%, 48%);
   font-size: 0.875rem; /* 14px */
   margin-bottom: 1rem;
+  line-height: 1.4;
 }
 
 /* Preços */
 .price {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 1rem;
   margin-bottom: 1rem;
 }
 
 .current-price {
   font-family: 'Fraunces', sans-serif;
-  font-size: 1.5rem; /* 24px */
+  font-size: 1.5rem;
   color: hsl(158, 36%, 37%);
   font-weight: 700;
 }
 
 .old-price {
   color: hsl(228, 12%, 48%);
-  font-size: 0.625rem; /* 10px */
+  font-size: 0.75rem; /* 12px */
   text-decoration: line-through;
-  text-decoration-thickness: 0.05rem; /* 0.8px */
 }
 
 /* BOTÃO */
@@ -97,24 +105,22 @@ main {
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  padding: 0.5rem 1rem;
-  border-radius: 0.5rem; /* 8px */
+  padding: 0.75rem;
+  border-radius: 0.5rem;
   cursor: pointer;
   width: 100%;
-  margin-top: 1rem;
-  font-size: 0.75rem; /* 12px */
+  font-size: 0.875rem; /* 14px */
   font-weight: 700;
 }
 
 .add-to-cart img {
-  border-radius: 0;
-  width: 0.75rem; /* 12px */
-  height: 0.75rem; /* 12px */
+  width: 1rem; /* 16px */
+  height: 1rem;
 }
 
 /* ATRIBUIÇÃO */
 .attribution {
-  font-size: 0.6875rem; /* 11px */
+  font-size: 0.6875rem;
   text-align: center;
   margin-top: 2rem;
 }
@@ -123,18 +129,19 @@ main {
   color: hsl(228, 45%, 44%);
 }
 
-/* MEDIA QUERY MOBILE */
-@media (max-width: 23.4375rem) { /* 375px */
+/* MOBILE */
+@media (max-width: 375px) {
   .card {
     flex-direction: column;
+    max-width: 90%;
   }
 
+  .card-left,
   .card-right {
-    font-size: 0.8rem; /* todas as fontes internas reduzem proporcionalmente */
+    width: 100%;
   }
 
-  /* Opcional: ajustar largura da imagem no mobile */
   .card-left img {
-    border-radius: 0.5rem 0.5rem 0 0; /* cantos arredondados apenas no topo */
+    height: auto;
   }
 }
